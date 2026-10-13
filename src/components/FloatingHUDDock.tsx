@@ -16,9 +16,10 @@ import {
   MoveVertical,
   Menu,
   X,
-  Sparkles
+  Sparkles,
+  Palette
 } from 'lucide-react';
-import { useTheme } from '../context/ThemeContext';
+import { useTheme, THEME_REGISTRY } from '../context/ThemeContext';
 import { ThemeSelector } from './ThemeSelector';
 
 interface FloatingHUDDockProps {
@@ -36,7 +37,7 @@ export const FloatingHUDDock: React.FC<FloatingHUDDockProps> = ({
   const [scrollProgress, setScrollProgress] = useState(0);
   const [mobileExpanded, setMobileExpanded] = useState(false);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
-  const { dockPosition, toggleDockPosition, soundEnabled, toggleSound, playUiSound } = useTheme();
+  const { theme, setTheme, dockPosition, toggleDockPosition, soundEnabled, toggleSound, playUiSound } = useTheme();
 
   const navItems = [
     { id: 'home', label: 'Home', badge: '01', icon: Home },
@@ -281,14 +282,142 @@ export const FloatingHUDDock: React.FC<FloatingHUDDockProps> = ({
       </aside>
 
       {/* ======================================================== */}
-      {/* MOBILE FLOATING DOCK                                     */}
+      {/* MOBILE FLOATING DOCK & EXPANDABLE DRAWER                 */}
       {/* ======================================================== */}
-      <div className="md:hidden fixed bottom-4 left-4 right-4 z-40">
+      <div className="md:hidden fixed bottom-4 left-3 right-3 z-50 flex flex-col justify-end">
+        {/* Mobile Expanded Drawer (Opens UPWARDS cleanly above bottom bar) */}
+        {mobileExpanded && (
+          <div className="mb-2 p-4 rounded-2xl glass-panel border theme-border-medium backdrop-blur-3xl shadow-2xl animate-in fade-in slide-in-from-bottom-4 duration-200 max-h-[78vh] overflow-y-auto no-scrollbar">
+            {/* Header */}
+            <div className="flex items-center justify-between pb-3 border-b theme-border-subtle mb-3">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full theme-accent animate-ping" />
+                <span className="font-mono text-xs font-bold theme-text-fg uppercase tracking-wider">
+                  Navigation & Controls
+                </span>
+              </div>
+              <span className="text-[10px] font-mono theme-text-muted">
+                {Math.round(scrollProgress)}% Scrolled
+              </span>
+            </div>
+
+            {/* Navigation Grid */}
+            <div className="grid grid-cols-2 gap-2 text-xs font-mono mb-4">
+              {navItems.map((item) => {
+                const Icon = item.icon;
+                const isActive = activeSection === item.id;
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className={`flex items-center justify-between p-2.5 rounded-xl text-left transition-all cursor-pointer ${
+                      isActive
+                        ? 'theme-accent theme-accent-bg font-bold border theme-accent-border shadow-sm'
+                        : 'theme-card border theme-border-subtle theme-text-muted hover:theme-text-fg hover:border-theme-border-medium'
+                    }`}
+                  >
+                    <div className="flex items-center gap-2">
+                      <Icon className="w-3.5 h-3.5 theme-accent" />
+                      <span>{item.label}</span>
+                    </div>
+                    <span className="text-[10px] opacity-60">#{item.badge}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Dedicated Mobile Theme Selector (Inline 6 Modes Grid - Zero Glitches!) */}
+            <div className="pt-3 border-t theme-border-subtle mb-3">
+              <div className="flex items-center justify-between mb-2">
+                <span className="text-[11px] font-mono theme-text-subtle uppercase tracking-wider flex items-center gap-1.5 font-semibold">
+                  <Palette className="w-3.5 h-3.5 theme-accent" />
+                  Color Themes
+                </span>
+                <span className="text-[10px] font-mono theme-accent font-semibold">
+                  {THEME_REGISTRY[theme].name}
+                </span>
+              </div>
+              
+              <div className="grid grid-cols-3 gap-1.5">
+                {(Object.values(THEME_REGISTRY)).map((t) => {
+                  const isSelected = theme === t.id;
+                  return (
+                    <button
+                      key={t.id}
+                      onClick={() => {
+                        setTheme(t.id);
+                        playUiSound('success');
+                      }}
+                      className={`flex items-center gap-2 p-2 rounded-xl text-[11px] font-mono transition-all text-left cursor-pointer ${
+                        isSelected
+                          ? 'theme-accent theme-accent-bg border theme-accent-border font-bold shadow-sm'
+                          : 'theme-card border theme-border-subtle theme-text-muted hover:theme-text-fg'
+                      }`}
+                    >
+                      <span
+                        className="w-3 h-3 rounded-full shrink-0 border border-black/30 shadow-sm"
+                        style={{ backgroundColor: t.accentHex }}
+                      />
+                      <span className="truncate">{t.name.split(' ')[0]}</span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Quick Utility Actions in Drawer */}
+            <div className="pt-3 border-t theme-border-subtle grid grid-cols-3 gap-2">
+              {/* Search */}
+              <button
+                onClick={() => {
+                  setMobileExpanded(false);
+                  playUiSound('open');
+                  onOpenCommandPalette();
+                }}
+                className="flex items-center justify-center gap-1.5 p-2 rounded-xl theme-card border theme-border-subtle text-xs font-mono theme-text-muted hover:theme-text-fg cursor-pointer"
+              >
+                <Search className="w-3.5 h-3.5 theme-accent" />
+                <span>Search</span>
+              </button>
+
+              {/* 30-Sec Summary */}
+              <button
+                onClick={() => {
+                  setMobileExpanded(false);
+                  playUiSound('open');
+                  onOpenRecruiter();
+                }}
+                className="flex items-center justify-center gap-1.5 p-2 rounded-xl theme-card border theme-border-subtle text-xs font-mono text-amber-400 cursor-pointer"
+              >
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>30-Sec</span>
+              </button>
+
+              {/* Sound Toggle */}
+              <button
+                onClick={() => {
+                  toggleSound();
+                  playUiSound('click');
+                }}
+                className="flex items-center justify-center gap-1.5 p-2 rounded-xl theme-card border theme-border-subtle text-xs font-mono theme-text-muted hover:theme-text-fg cursor-pointer"
+              >
+                {soundEnabled ? (
+                  <Volume2 className="w-3.5 h-3.5 theme-accent" />
+                ) : (
+                  <VolumeX className="w-3.5 h-3.5 theme-text-subtle" />
+                )}
+                <span>{soundEnabled ? 'Audio ON' : 'Audio OFF'}</span>
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Persistent Bottom Mobile Command Bar */}
         <div className="flex items-center justify-between p-2 rounded-2xl glass-panel border theme-border-medium shadow-2xl backdrop-blur-2xl">
           {/* Brand & Section Indicator */}
           <button
             onClick={() => scrollToSection('home')}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl theme-accent-bg border theme-accent-border font-mono font-bold text-xs theme-accent"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl theme-accent-bg border theme-accent-border font-mono font-bold text-xs theme-accent cursor-pointer"
           >
             <span className="w-1.5 h-1.5 rounded-full theme-accent animate-ping" />
             <span>KG</span>
@@ -298,7 +427,7 @@ export const FloatingHUDDock: React.FC<FloatingHUDDockProps> = ({
           <div className="flex items-center gap-1 font-mono text-xs">
             <button
               onClick={() => scrollToSection('projects')}
-              className={`px-2.5 py-1.5 rounded-lg transition-colors ${
+              className={`px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
                 activeSection === 'projects'
                   ? 'theme-accent theme-accent-bg font-bold'
                   : 'theme-text-muted hover:theme-text-fg'
@@ -308,7 +437,7 @@ export const FloatingHUDDock: React.FC<FloatingHUDDockProps> = ({
             </button>
             <button
               onClick={() => scrollToSection('skills')}
-              className={`px-2.5 py-1.5 rounded-lg transition-colors ${
+              className={`px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
                 activeSection === 'skills'
                   ? 'theme-accent theme-accent-bg font-bold'
                   : 'theme-text-muted hover:theme-text-fg'
@@ -317,74 +446,45 @@ export const FloatingHUDDock: React.FC<FloatingHUDDockProps> = ({
               Skills
             </button>
             <button
-              onClick={() => scrollToSection('contact')}
-              className={`px-2.5 py-1.5 rounded-lg transition-colors ${
-                activeSection === 'contact'
+              onClick={() => scrollToSection('research')}
+              className={`px-2.5 py-1.5 rounded-lg transition-colors cursor-pointer ${
+                activeSection === 'research'
                   ? 'theme-accent theme-accent-bg font-bold'
                   : 'theme-text-muted hover:theme-text-fg'
               }`}
             >
-              Contact
+              Paper
             </button>
           </div>
 
-          {/* Quick Resume & Search Actions */}
+          {/* Quick Resume & Menu Toggle */}
           <div className="flex items-center gap-1.5">
             <button
               onClick={() => {
                 playUiSound('open');
                 onOpenResume();
               }}
-              className="px-3 py-1.5 rounded-xl font-mono text-xs font-bold theme-accent theme-accent-bg border theme-accent-border"
+              className="px-3 py-1.5 rounded-xl font-mono text-xs font-bold theme-accent theme-accent-bg border theme-accent-border cursor-pointer hover:scale-105 transition-transform"
             >
               Resume
             </button>
 
             <button
-              onClick={() => setMobileExpanded(!mobileExpanded)}
-              className="p-2 text-xs theme-text-muted hover:theme-text-fg"
-              aria-label="Toggle menu"
+              onClick={() => {
+                playUiSound('click');
+                setMobileExpanded(!mobileExpanded);
+              }}
+              className={`p-2 rounded-xl transition-all cursor-pointer ${
+                mobileExpanded
+                  ? 'theme-accent-bg theme-accent border theme-accent-border'
+                  : 'theme-card border theme-border-subtle theme-text-muted hover:theme-text-fg'
+              }`}
+              aria-label="Toggle navigation menu"
             >
               {mobileExpanded ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
             </button>
           </div>
         </div>
-
-        {/* Mobile Expanded Drawer */}
-        {mobileExpanded && (
-          <div className="mt-2 p-3 rounded-2xl glass-panel border theme-border-medium backdrop-blur-2xl shadow-2xl animate-in fade-in slide-in-from-bottom-2 duration-200">
-            <div className="grid grid-cols-2 gap-2 text-xs font-mono">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`flex items-center gap-2 p-2 rounded-lg text-left transition-colors ${
-                    activeSection === item.id
-                      ? 'theme-accent theme-accent-bg font-bold border theme-accent-border'
-                      : 'theme-text-muted hover:theme-text-fg hover:bg-white/[0.05]'
-                  }`}
-                >
-                  <item.icon className="w-3.5 h-3.5" />
-                  <span>{item.label}</span>
-                </button>
-              ))}
-            </div>
-            
-            <div className="mt-3 pt-3 border-t theme-border-subtle flex items-center justify-between">
-              <ThemeSelector />
-              <button
-                onClick={() => {
-                  toggleSound();
-                  playUiSound('click');
-                }}
-                className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-mono theme-text-muted hover:theme-text-fg"
-              >
-                {soundEnabled ? <Volume2 className="w-3.5 h-3.5 theme-accent" /> : <VolumeX className="w-3.5 h-3.5" />}
-                <span>Sound: {soundEnabled ? 'ON' : 'OFF'}</span>
-              </button>
-            </div>
-          </div>
-        )}
       </div>
     </>
   );
