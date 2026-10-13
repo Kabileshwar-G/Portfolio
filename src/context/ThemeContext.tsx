@@ -88,7 +88,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [theme, setThemeState] = useState<ThemeMode>(() => {
     const saved = localStorage.getItem('kg-portfolio-theme') as ThemeMode;
-    return saved && Object.keys(THEME_REGISTRY).includes(saved) ? saved : 'dark';
+    return saved && Object.keys(THEME_REGISTRY).includes(saved) ? saved : 'light';
   });
 
   const [dockPosition, setDockPositionState] = useState<'top' | 'side'>(() => {
