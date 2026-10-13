@@ -223,44 +223,16 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               <div>
                 <div className="flex justify-between items-baseline">
                   <div className="font-bold text-neutral-900">
-                    Agentic AI Smart Hospital Bed System
+                    Intelligent Solar Energy Management System
                   </div>
                   <div className="text-[10px] font-mono text-neutral-500">
-                    Reinforcement Learning · Multi-Agent Systems · GitHub · Preprint (arXiv)
+                    PyTorch · LSTM · Deep Q-Network (DQN) · Reinforcement Learning · IEEE Paper
                   </div>
                 </div>
                 <ul className="list-disc list-outside ml-4 text-neutral-700 space-y-0.5 mt-0.5">
-                  <li>Authored a research paper on autonomous medical resource allocation, formatted to IEEE standards.</li>
-                  <li>Developed multi-agent RL logic to allocate 500+ virtual beds, simulating a 30% reduction in wait times.</li>
-                </ul>
-              </div>
-
-              <div>
-                <div className="flex justify-between items-baseline">
-                  <div className="font-bold text-neutral-900">
-                    Multimodal Fitness & Nutrition AI Assistant
-                  </div>
-                  <div className="text-[10px] font-mono text-neutral-500">
-                    OpenAI Vision API · RAG · ChromaDB · GitHub
-                  </div>
-                </div>
-                <ul className="list-disc list-outside ml-4 text-neutral-700 space-y-0.5 mt-0.5">
-                  <li>Built a RAG pipeline over ChromaDB that integrates the OpenAI Vision API to process unstructured gym and nutrition data.</li>
-                </ul>
-              </div>
-
-              <div>
-                <div className="flex justify-between items-baseline">
-                  <div className="font-bold text-neutral-900">
-                    Scalable Multi-Pod AI Deployment Infrastructure
-                  </div>
-                  <div className="text-[10px] font-mono text-neutral-500">
-                    Django · Hugging Face · Docker · Kubernetes · GitHub Actions · GitHub
-                  </div>
-                </div>
-                <ul className="list-disc list-outside ml-4 text-neutral-700 space-y-0.5 mt-0.5">
-                  <li>Packaged a Django backend and a Hugging Face inference engine into Docker containers and orchestrated them as a multi-pod Kubernetes deployment (Minikube) in a virtualized Linux Mint environment, with hand-written pod configs.</li>
-                  <li>Automated container builds and registry pushes with GitHub Actions.</li>
+                  <li>Co-authored an academic research paper formatted to IEEE standards coupling stacked LSTM time-series solar forecasting with Deep Q-Network (DQN) reinforcement learning.</li>
+                  <li>Engineered cyclical sinusoidal temporal encodings (hour_sin / hour_cos) and Min-Max weather feature scaling (solar irradiance, temperature, humidity, wind speed).</li>
+                  <li>Formulated a Markov Decision Process (MDP) over 5D state vectors with a 4-action discrete space (store, use, sell, wait), delivering an 81.55% performance improvement over conventional rule-based baselines.</li>
                 </ul>
               </div>
 
@@ -282,28 +254,15 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               <div>
                 <div className="flex justify-between items-baseline">
                   <div className="font-bold text-neutral-900">
-                    Comprehensive Gym Management Dashboard
+                    Scalable Multi-Pod AI Deployment Infrastructure
                   </div>
                   <div className="text-[10px] font-mono text-neutral-500">
-                    React.js · Node.js/Express · MySQL · Bootstrap · GitHub
+                    Django · Hugging Face · Docker · Kubernetes · GitHub Actions · GitHub
                   </div>
                 </div>
                 <ul className="list-disc list-outside ml-4 text-neutral-700 space-y-0.5 mt-0.5">
-                  <li>Full-stack member management app: React/Bootstrap frontend, Node/Express REST API, MySQL schema. Built end to end.</li>
-                </ul>
-              </div>
-
-              <div>
-                <div className="flex justify-between items-baseline">
-                  <div className="font-bold text-neutral-900">
-                    Content Creator Portfolio & Asset Manager
-                  </div>
-                  <div className="text-[10px] font-mono text-neutral-500">
-                    PHP · SQL · Session-Based Auth · GitHub
-                  </div>
-                </div>
-                <ul className="list-disc list-outside ml-4 text-neutral-700 space-y-0.5 mt-0.5">
-                  <li>Built login and session handling from scratch in PHP, with a custom SQL schema for tagging and organizing streaming assets.</li>
+                  <li>Packaged a Django backend and a Hugging Face inference engine into Docker containers and orchestrated them as a multi-pod Kubernetes deployment (Minikube) in a virtualized Linux Mint environment, with hand-written pod configs.</li>
+                  <li>Automated container builds and registry pushes with GitHub Actions.</li>
                 </ul>
               </div>
             </div>

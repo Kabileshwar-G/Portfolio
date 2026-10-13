@@ -57,8 +57,8 @@ export const personalInfo: PersonalInfo = {
     github: "https://github.com/Kabileshwar-G",
   },
   bioParagraphs: [
-    "CSE (AI/ML) student working across two tracks: full-stack and distributed systems (React, Node, Spring Boot, Kafka, Docker/Kubernetes) and applied AI/ML (PyTorch, GNNs, RAG, multi-agent systems).",
-    "Author of seven independent engineering projects, two AI/ML industry internships, and an academic research preprint formatted to IEEE standards on autonomous medical resource allocation."
+    "CSE (AI/ML) student working across two tracks: full-stack and distributed systems (React, Node, Spring Boot, Kafka, Docker/Kubernetes) and applied AI/ML (PyTorch, GNNs, RAG, reinforcement learning).",
+    "Author of four flagship engineering systems, two AI/ML industry internships, and an academic research paper formatted to IEEE standards on intelligent solar energy management using LSTM forecasting and deep reinforcement learning."
   ],
   quickStats: [
     {
@@ -67,14 +67,14 @@ export const personalInfo: PersonalInfo = {
       description: "Innovate (Healthcare ML) & EduSkills (Predictive Models)"
     },
     {
-      label: "Engineered Projects",
-      value: "7",
-      description: "Distributed systems, RAG, Multi-Agent RL & full-stack apps"
+      label: "Flagship Projects",
+      value: "4",
+      description: "Distributed systems, Solar RL, Enterprise RAG & K8s multi-pod"
     },
     {
-      label: "Research Preprint",
+      label: "Research Paper",
       value: "1",
-      description: "Autonomous Medical Resource Allocation (IEEE Standard)"
+      description: "Intelligent Solar Energy Management (IEEE Standards)"
     },
     {
       label: "Academic Standing",

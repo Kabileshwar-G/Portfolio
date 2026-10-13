@@ -29,8 +29,8 @@ export const About: React.FC = () => {
     },
     {
       icon: Layers,
-      title: 'Empirical Research & Preprints',
-      desc: 'Multi-agent reinforcement learning for medical resource allocation written to IEEE standards.'
+      title: 'Empirical Research & Publications',
+      desc: 'Intelligent solar energy management using LSTM forecasting and Deep Q-Networks (DQN) to IEEE standards.'
     }
   ];
 

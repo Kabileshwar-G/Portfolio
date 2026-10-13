@@ -97,10 +97,10 @@ export const RecruiterModal: React.FC<RecruiterModalProps> = ({
             </div>
           </div>
 
-          {/* 7 Projects from Resume */}
+          {/* 4 Flagship Systems */}
           <div className="p-4 rounded-xl theme-card border theme-border-subtle">
             <h3 className="font-mono theme-accent uppercase tracking-wider text-xs font-semibold mb-2">
-              3. Seven Independent Projects
+              3. Four Flagship Engineering Systems
             </h3>
             <div className="space-y-1.5">
               {projects.map((proj) => (

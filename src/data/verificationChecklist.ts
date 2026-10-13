@@ -36,11 +36,11 @@ export const verificationMatrix: VerificationEntry[] = [
     notes: "Explicitly documented as an experimental prototype on simulated service traces, not an enterprise deployment."
   },
   {
-    item: "Agentic AI Smart Hospital Bed System",
-    sourceOrigin: "Research Preprint Document",
-    verifiedValue: "30% wait reduction across 500+ virtual beds (IEEE Preprint)",
-    status: "Clearly Qualified (Simulation)",
-    notes: "Explicitly labeled as an academic research preprint and simulation, not clinical trial results."
+    item: "Intelligent Solar Energy Management System",
+    sourceOrigin: "Authored Research Paper (IEEE Standards)",
+    verifiedValue: "81.55% performance improvement over rule-based baseline (-2379.94 to -439.16)",
+    status: "Verified & Accurate",
+    notes: "Directly verified against authored IEEE research paper coupling stacked LSTM forecasting with Deep Q-Network (DQN) reinforcement learning."
   },
   {
     item: "Open-World RAG Knowledge Engine",
@@ -48,13 +48,6 @@ export const verificationMatrix: VerificationEntry[] = [
     verifiedValue: "10,000+ pages indexed, 40% query latency cut, ~95% contextual accuracy",
     status: "Verified & Accurate",
     notes: "Evaluated across structured domain documentation and question-answering benchmark queries."
-  },
-  {
-    item: "Solar Irradiance Project",
-    sourceOrigin: "Local Directory (E:\\Projects\\CORE\\PROJECT 21 CODE\\solar_irradiance_project)",
-    verifiedValue: "data/notebook/src/requirements.txt structure",
-    status: "In-Progress / Disclaimed",
-    notes: "Treated strictly as Work in Progress. No fabricated metrics or inflated conclusions published."
   },
   {
     item: "Certifications vs Coursework",

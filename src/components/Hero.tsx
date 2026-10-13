@@ -27,8 +27,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, onOpenRecruiter }) => 
   const [activeLogIndex, setActiveLogIndex] = useState(0);
 
   const telemetryLogs = [
+    { source: 'Solar Energy AI', msg: 'LSTM Forecasting + Deep Q-Network (DQN) Grid Optimization', tag: '81.55% GAIN' },
     { source: 'MicroGuard AI', msg: 'Streaming telemetry traces via Kafka -> Redis graph', tag: '85%+ GNN PRECISION' },
-    { source: 'Hospital Bed MARL', msg: 'Multi-agent RL balancing 500+ virtual beds', tag: '30% WAIT REDUCTION' },
     { source: 'RAG Knowledge Engine', msg: 'Semantic search indexing 10,000+ text pages', tag: '~95% ACCURACY' },
     { source: 'K8s Multi-Pod Deploy', msg: 'Django + Hugging Face orchestrated in Minikube', tag: 'CONTAINERIZED' },
   ];
@@ -288,12 +288,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, onOpenRecruiter }) => 
                 <div className="p-3 rounded-xl theme-card border theme-border-subtle">
                   <div className="text-[10px] font-mono theme-text-subtle uppercase flex items-center gap-1 mb-1">
                     <Layers className="w-3 h-3 theme-accent" />
-                    Preprint Paper
+                    Research Paper
                   </div>
                   <div className="font-display text-2xl font-bold theme-text-fg">
                     IEEE <span className="text-xs theme-accent font-mono font-normal">Format</span>
                   </div>
-                  <div className="text-[10px] font-mono theme-text-muted">Medical RL Resource Alloc</div>
+                  <div className="text-[10px] font-mono theme-text-muted truncate">Solar RL & LSTM Forecasting</div>
                 </div>
               </div>
 

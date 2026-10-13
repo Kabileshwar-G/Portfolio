@@ -15,18 +15,15 @@ export const ProjectsSection: React.FC = () => {
   const { playUiSound } = useTheme();
 
   const filters = [
-    { id: 'all', label: `All 7 Projects` },
-    { id: 'flagship', label: 'Flagship Systems' },
+    { id: 'all', label: `All 4 Systems` },
+    { id: 'Deep Learning & RL', label: 'Solar RL & Forecasting' },
     { id: 'Distributed Systems & AI/ML', label: 'Distributed & AI/ML' },
     { id: 'Generative AI & RAG', label: 'GenAI & RAG' },
     { id: 'Cloud & MLOps', label: 'Cloud & MLOps' },
-    { id: 'Multi-Agent & Research', label: 'Research Systems' },
-    { id: 'Full-Stack Web', label: 'Full-Stack' },
   ];
 
   const filteredProjects = projects.filter((proj) => {
     if (activeFilter === 'all') return true;
-    if (activeFilter === 'flagship') return proj.isFlagship;
     return proj.category === activeFilter;
   });
 
@@ -44,7 +41,7 @@ export const ProjectsSection: React.FC = () => {
               Projects ({projects.length})
             </h2>
             <p className="text-xs sm:text-base theme-text-muted mt-2 max-w-2xl leading-relaxed">
-              Seven software engineering projects spanning distributed microservices, graph neural networks, multi-agent reinforcement learning, and enterprise RAG.
+              Four flagship engineering and applied AI systems spanning deep reinforcement learning, distributed streaming microservices, graph neural networks, and enterprise RAG.
             </p>
           </div>
 

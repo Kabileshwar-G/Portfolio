@@ -8,9 +8,9 @@ export interface Project {
   id: string;
   title: string;
   tagline: string;
-  category: "Distributed Systems & AI/ML" | "Generative AI & RAG" | "Cloud & MLOps" | "Multi-Agent & Research" | "Full-Stack Web";
+  category: "Deep Learning & RL" | "Distributed Systems & AI/ML" | "Generative AI & RAG" | "Cloud & MLOps";
   isFlagship: boolean;
-  status: "Completed & Verified" | "Research Preprint (arXiv)" | "Simulation Benchmark";
+  status: "Completed & Verified" | "Research Paper (IEEE)" | "Simulation Benchmark";
   technologies: string[];
   metrics: ProjectMetric[];
   bullets: string[];
@@ -19,6 +19,49 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    id: "solar-energy-management",
+    title: "Intelligent Solar Energy Management System",
+    tagline: "LSTM-Based Solar Forecasting & Deep Q-Network (DQN) Grid Optimization",
+    category: "Deep Learning & RL",
+    isFlagship: true,
+    status: "Research Paper (IEEE)",
+    technologies: [
+      "Python",
+      "PyTorch",
+      "LSTM Networks",
+      "Deep Q-Network (DQN)",
+      "Reinforcement Learning",
+      "Time-Series Forecasting",
+      "NumPy / Pandas",
+      "Smart Grid Simulation"
+    ],
+    metrics: [
+      {
+        label: "Performance Improvement",
+        value: "81.55%",
+        context: "Outperformed baseline rule-based energy management strategies by 81.55% (reduced loss from -2379.94 to -439.16)"
+      },
+      {
+        label: "Decision Space",
+        value: "4 Discrete Actions",
+        context: "DQN agent selects optimal real-time actions: store, use, sell, or wait"
+      },
+      {
+        label: "Cyclic Encoding",
+        value: "Sinusoidal Math",
+        context: "Sinusoidal temporal mapping (hour_sin/hour_cos) capturing continuous solar periodic cycles"
+      }
+    ],
+    bullets: [
+      "Designed and implemented a hybrid clean-tech AI framework combining stacked LSTM time-series forecasting with Deep Q-Network (DQN) reinforcement learning for proactive smart grid energy control.",
+      "Engineered an environmental feature pipeline (temperature, wind speed, relative humidity, solar irradiance) normalized via Min-Max scaling with sinusoidal cyclic time encoding to eliminate temporal boundary discontinuities.",
+      "Formulated a Markov Decision Process (MDP) over 5D state vectors (predicted solar, environmental sensors, battery level) with a reward function penalizing battery overflow/depletion and rewarding strategic grid power sales.",
+      "Demonstrated an 81.55% performance improvement over conventional rule-based baselines in dynamic smart grid simulation environments, co-authored to IEEE standards."
+    ],
+    githubUrl: "https://github.com/Kabileshwar-G/Portfolio",
+    preprintUrl: "https://github.com/Kabileshwar-G/Portfolio"
+  },
   {
     id: "microguard-ai",
     title: "MicroGuard AI",
@@ -58,44 +101,7 @@ export const projects: Project[] = [
       "Trained a PyTorch Graph Neural Network on server telemetry to predict cascading failures (85%+ precision), with experiments tracked in MLflow.",
       "Served predictions through FastAPI and built a React/Next.js + D3.js dashboard with WebSocket-driven live alerts."
     ],
-    githubUrl: "https://github.com/Kabileshwar-G"
-  },
-  {
-    id: "smart-hospital-bed",
-    title: "Agentic AI Smart Hospital Bed System",
-    tagline: "Autonomous Medical Resource Allocation via Multi-Agent RL",
-    category: "Multi-Agent & Research",
-    isFlagship: true,
-    status: "Research Preprint (arXiv)",
-    technologies: [
-      "Reinforcement Learning",
-      "Multi-Agent Systems",
-      "Python",
-      "IEEE Standards"
-    ],
-    metrics: [
-      {
-        label: "Simulated Allocation",
-        value: "500+ Beds",
-        context: "Developed multi-agent RL logic to allocate 500+ virtual beds"
-      },
-      {
-        label: "Wait Time Reduction",
-        value: "30%",
-        context: "Simulated 30% reduction in emergency and triage wait times"
-      },
-      {
-        label: "Paper Format",
-        value: "IEEE Standards",
-        context: "Authored research paper preprint on autonomous resource allocation"
-      }
-    ],
-    bullets: [
-      "Authored a research paper on autonomous medical resource allocation, formatted to IEEE standards.",
-      "Developed multi-agent RL logic to allocate 500+ virtual beds, simulating a 30% reduction in wait times."
-    ],
-    githubUrl: "https://github.com/Kabileshwar-G",
-    preprintUrl: "https://github.com/Kabileshwar-G"
+    githubUrl: "https://github.com/Kabileshwar-G/Portfolio"
   },
   {
     id: "rag-knowledge-engine",
@@ -131,7 +137,7 @@ export const projects: Project[] = [
       "Built a RAG assistant over 10,000+ pages of unstructured text; semantic search cut query latency by 40%.",
       "Designed a prompt-management layer that reduced hallucinations, reaching about 95% contextual accuracy in testing."
     ],
-    githubUrl: "https://github.com/Kabileshwar-G"
+    githubUrl: "https://github.com/Kabileshwar-G/Portfolio"
   },
   {
     id: "k8s-ai-deployment",
@@ -165,95 +171,6 @@ export const projects: Project[] = [
       "Packaged a Django backend and a Hugging Face inference engine into Docker containers and orchestrated them as a multi-pod Kubernetes deployment (Minikube) in a virtualized Linux Mint environment, with hand-written pod configs.",
       "Automated container builds and registry pushes with GitHub Actions."
     ],
-    githubUrl: "https://github.com/Kabileshwar-G"
-  },
-  {
-    id: "gym-management-dashboard",
-    title: "Comprehensive Gym Management Dashboard",
-    tagline: "End-to-End Member Management Application",
-    category: "Full-Stack Web",
-    isFlagship: false,
-    status: "Completed & Verified",
-    technologies: [
-      "React.js",
-      "Node.js/Express",
-      "MySQL",
-      "Bootstrap"
-    ],
-    metrics: [
-      {
-        label: "Architecture",
-        value: "Full-Stack",
-        context: "React/Bootstrap frontend, Node/Express REST API, MySQL schema"
-      },
-      {
-        label: "Implementation",
-        value: "End-to-End",
-        context: "Full-stack member management system built completely from scratch"
-      }
-    ],
-    bullets: [
-      "Full-stack member management app: React/Bootstrap frontend, Node/Express REST API, MySQL schema. Built end to end."
-    ],
-    githubUrl: "https://github.com/Kabileshwar-G"
-  },
-  {
-    id: "multimodal-fitness-nutrition-ai",
-    title: "Multimodal Fitness & Nutrition AI Assistant",
-    tagline: "Visual Data Processing & ChromaDB RAG Pipeline",
-    category: "Generative AI & RAG",
-    isFlagship: false,
-    status: "Completed & Verified",
-    technologies: [
-      "OpenAI Vision API",
-      "RAG",
-      "ChromaDB",
-      "Python"
-    ],
-    metrics: [
-      {
-        label: "Integration",
-        value: "Multimodal",
-        context: "Integrates OpenAI Vision API with ChromaDB RAG"
-      },
-      {
-        label: "Target Data",
-        value: "Gym & Nutrition",
-        context: "Processes unstructured gym and nutrition imagery and metrics"
-      }
-    ],
-    bullets: [
-      "Built a RAG pipeline over ChromaDB that integrates the OpenAI Vision API to process unstructured gym and nutrition data."
-    ],
-    githubUrl: "https://github.com/Kabileshwar-G"
-  },
-  {
-    id: "content-creator-portfolio",
-    title: "Content Creator Portfolio & Asset Manager",
-    tagline: "Custom SQL Schema & Session Authentication",
-    category: "Full-Stack Web",
-    isFlagship: false,
-    status: "Completed & Verified",
-    technologies: [
-      "PHP",
-      "SQL",
-      "Session-Based Auth"
-    ],
-    metrics: [
-      {
-        label: "Auth Model",
-        value: "Native PHP Sessions",
-        context: "Built login and session handling from scratch in PHP"
-      },
-      {
-        label: "Data Model",
-        value: "Custom SQL",
-        context: "Relational schema for tagging and organizing streaming assets"
-      }
-    ],
-    bullets: [
-      "Built login and session handling from scratch in PHP, with a custom SQL schema for tagging and organizing streaming assets."
-    ],
-    githubUrl: "https://github.com/Kabileshwar-G"
+    githubUrl: "https://github.com/Kabileshwar-G/Portfolio"
   }
 ];
