@@ -6,6 +6,7 @@ import {
   CheckCircle2
 } from 'lucide-react';
 import { experiences } from '../data/experience';
+import { TimeMachineChrono } from './TimeMachineChrono';
 
 export const ExperienceSection: React.FC = () => {
   return (
@@ -15,14 +16,25 @@ export const ExperienceSection: React.FC = () => {
         <div className="mb-14 scroll-reveal">
           <div className="flex items-center gap-2 text-xs font-mono theme-accent uppercase tracking-widest mb-2">
             <span className="w-6 h-[1px] bg-current" />
-            Work History
+            Work History &amp; Chronology
           </div>
           <h2 className="font-display text-3xl sm:text-5xl font-bold theme-text-fg">
-            Work Experience
+            Experience &amp; Milestones
           </h2>
           <p className="text-xs sm:text-base theme-text-muted mt-2 max-w-2xl leading-relaxed">
-            Hands-on AI/ML engineering experience building, evaluating, and accelerating predictive models in professional environments.
+            Hands-on AI/ML engineering experience, distributed systems research, and academic leadership spanning 2023 to 2027.
           </p>
+        </div>
+
+        {/* Scene 03: The Time Machine Radial Astrolabe */}
+        <div className="scroll-reveal delay-100">
+          <TimeMachineChrono />
+        </div>
+
+        {/* Formal Roles Header */}
+        <div className="flex items-center gap-2 text-xs font-mono theme-accent uppercase tracking-widest mb-6">
+          <span className="w-4 h-[1px] bg-current" />
+          Industry Engagements
         </div>
 
         {/* Experience Timeline */}

@@ -3,6 +3,7 @@ import { Search } from 'lucide-react';
 import { skillCategories } from '../data/skills';
 import type { SkillCategory } from '../data/skills';
 import { useTheme } from '../context/ThemeContext';
+import { TechUniverse3D } from './TechUniverse3D';
 
 export const SkillsSection: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -99,6 +100,11 @@ export const SkillsSection: React.FC = () => {
               </button>
             )}
           </div>
+        </div>
+
+        {/* Scene 02: 3D Perspective Tech Universe */}
+        <div className="scroll-reveal delay-100">
+          <TechUniverse3D onSelectTech={(name) => setSearchQuery(name.split('/')[0].trim())} />
         </div>
 
         {/* Filter Pills */}

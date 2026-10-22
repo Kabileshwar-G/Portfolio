@@ -488,13 +488,100 @@
   animation: pulseSubtle 3s ease-in-out infinite;
 }
 
+/* ========================================================================== */
+/* CINEMATIC VISUAL ENGINE & 3D UTILITIES                                      */
+/* ========================================================================== */
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-1400 {
+  perspective: 1400px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Giant Architectural Typography Backdrop */
+.cinematic-monument {
+  font-family: 'Anton', 'Bebas Neue', 'Impact', sans-serif;
+  letter-spacing: 0.04em;
+  line-height: 0.88;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+/* Distressed metallic / etched text treatment */
+.cinematic-text-etched {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(200, 215, 235, 0.45) 55%, rgba(100, 115, 140, 0.15) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.theme-light .cinematic-text-etched {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.95) 0%, rgba(51, 65, 85, 0.4) 60%, rgba(148, 163, 184, 0.1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Silhouette Rim Lighting */
+.cinematic-rim-glow {
+  filter: drop-shadow(0 0 35px var(--accent-gold)) drop-shadow(0 0 70px var(--accent-copper));
+}
+
+/* Ground Plane Contact Shadow */
+.cinematic-contact-shadow {
+  background: radial-gradient(ellipse 65% 24% at 50% 50%, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.45) 50%, transparent 80%);
+}
+
+.theme-light .cinematic-contact-shadow {
+  background: radial-gradient(ellipse 65% 24% at 50% 50%, rgba(15, 23, 42, 0.45) 0%, rgba(15, 23, 42, 0.18) 50%, transparent 80%);
+}
+
+/* Glossy Reflective Floor Horizon */
+.cinematic-floor-reflection {
+  background: linear-gradient(to bottom, rgba(2, 6, 17, 0.1) 0%, var(--bg-primary) 70%);
+}
+
+/* 3D Floor Perspective Grid */
+.cinematic-floor-grid {
+  background-image: 
+    linear-gradient(to right, var(--border-subtle) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border-subtle) 1px, transparent 1px);
+  background-size: 48px 48px;
+  transform: rotateX(68deg) translateZ(-40px);
+  transform-origin: 50% 100%;
+}
+
+/* Film Grain Texture */
+.cinematic-film-grain {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.theme-light .cinematic-film-grain {
+  opacity: 0.025;
+}
+
 /* Print styles for Resume */
 @media print {
   body {
     background: #fff !important;
     color: #000 !important;
   }
-  header, nav, footer, .no-print, .cyber-bg, .scroll-progress-line {
+  header, nav, footer, .no-print, .cyber-bg, .scroll-progress-line, .cinematic-film-grain {
     display: none !important;
   }
 }

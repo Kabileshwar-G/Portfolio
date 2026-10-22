@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ThemeProvider } from './context/ThemeContext';
 import { CyberBackground } from './components/CyberBackground';
+import { CinematicFilmGrain } from './components/CinematicFilmGrain';
 import { FloatingHUDDock } from './components/FloatingHUDDock';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -41,6 +42,9 @@ export const AppContent: React.FC = () => {
     <div className="min-h-screen theme-bg theme-text-fg selection:bg-amber-500/20 selection:text-amber-500 relative">
       {/* Ambient Interactive Cyber Background (Constellation particles & plasma orbs) */}
       <CyberBackground />
+
+      {/* Cinematic 35mm Film Grain Overlay */}
+      <CinematicFilmGrain />
 
       {/* Futuristic Floating HUD Command Dock (Top Center / Side Dock) */}
       <FloatingHUDDock

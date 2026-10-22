@@ -44,6 +44,9 @@ export default {
         sans: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
         display: ['Space Grotesk', 'sans-serif'],
         mono: ['JetBrains Mono', 'DM Mono', 'monospace'],
+        cinema: ['Anton', 'Bebas Neue', 'Impact', 'sans-serif'],
+        bebas: ['Bebas Neue', 'sans-serif'],
+        syne: ['Syne', 'sans-serif'],
       },
       boxShadow: {
         'gold-sm': '0 0 15px -3px rgba(212, 175, 55, 0.15)',
