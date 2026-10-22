@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { 
-  ArrowUpRight, 
+  ArrowUpRight,
   Star
 } from 'lucide-react';
 import { projects } from '../data/projects';
@@ -8,6 +8,7 @@ import type { Project } from '../data/projects';
 import { ProjectModal } from './ProjectModal';
 import { GithubIcon } from './SocialIcons';
 import { useTheme } from '../context/ThemeContext';
+import { CinematicProjectUniverse } from './CinematicProjectUniverse';
 
 export const ProjectsSection: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState<string>('all');
@@ -47,12 +48,23 @@ export const ProjectsSection: React.FC = () => {
 
           <div className="text-xs font-mono theme-text-muted flex items-center gap-2">
             <span className="w-2 h-2 rounded-full theme-accent animate-ping" />
-            <span>Click any project card for deep case-study view</span>
+            <span>Click any project for deep architectural case-study</span>
           </div>
         </div>
 
+        {/* Scene 04: The Theatrical Project Universe Viewport */}
+        <div className="scroll-reveal delay-100">
+          <CinematicProjectUniverse onOpenModal={(p) => setSelectedProject(p)} />
+        </div>
+
+        {/* Catalog Subheader */}
+        <div className="flex items-center gap-2 text-xs font-mono theme-accent uppercase tracking-widest mb-4">
+          <span className="w-4 h-[1px] bg-current" />
+          Master Project Directory &amp; Filter Matrix
+        </div>
+
         {/* Filter Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 no-scrollbar scroll-smooth scroll-reveal delay-100">
+        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 no-scrollbar scroll-smooth scroll-reveal delay-150">
           {filters.map((f) => (
             <button
               key={f.id}

@@ -241,51 +241,60 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume, onOpenRecruiter }) => 
           </div>
 
           {/* ================================================================ */}
-          {/* CENTER: CUTOUT OF KABILESWAR (IN FRONT OF WORDMARK)              */}
+          {/* CENTER: CINEMATIC ANCHORED SUBJECT (SOLID, ZERO FLOAT)           */}
           {/* ================================================================ */}
-          <div className="lg:col-span-4 order-1 lg:order-2 flex justify-center items-end relative min-h-[420px] sm:min-h-[500px] lg:min-h-[580px]">
+          <div className="lg:col-span-4 order-1 lg:order-2 flex justify-center items-end relative min-h-[440px] sm:min-h-[520px] lg:min-h-[600px]">
             
-            {/* Ground Contact Shadow beneath feet */}
-            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[280px] sm:w-[340px] h-[36px] cinematic-contact-shadow pointer-events-none z-10" />
+            {/* Cinematic Camera Reticle Framing Marks */}
+            <div className="absolute top-6 left-6 text-[10px] font-mono theme-text-subtle opacity-40 pointer-events-none select-none">
+              ┌ CAM 01 // 35MM
+            </div>
+            <div className="absolute top-6 right-6 text-[10px] font-mono theme-text-subtle opacity-40 pointer-events-none select-none">
+              ISO 400 ┐
+            </div>
+            <div className="absolute bottom-16 left-6 text-[10px] font-mono theme-text-subtle opacity-40 pointer-events-none select-none">
+              └ REEL 24FPS
+            </div>
+            <div className="absolute bottom-16 right-6 text-[10px] font-mono theme-text-subtle opacity-40 pointer-events-none select-none">
+              PRIME 50MM ┘
+            </div>
 
-            {/* Concentric Astrolabe Ground Plane Rings */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[380px] sm:w-[460px] h-[120px] border border-dashed border-amber-500/25 rounded-[100%] pointer-events-none transform -rotate-12 animate-spin-slow opacity-60" />
+            {/* Ground Contact Shadow beneath feet (solid anchorage) */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[300px] sm:w-[380px] h-[40px] cinematic-contact-shadow pointer-events-none z-10" />
+
+            {/* Concentric Astrolabe Ground Plane Stage */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[420px] sm:w-[500px] h-[130px] border border-amber-500/20 rounded-[100%] pointer-events-none transform -rotate-12 animate-spin-slow opacity-50" />
             <div 
-              className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[300px] sm:w-[360px] h-[90px] border border-dotted border-sky-400/20 rounded-[100%] pointer-events-none transform rotate-6 animate-spin-slow opacity-50"
-              style={{ animationDirection: 'reverse', animationDuration: '34s' }}
+              className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[340px] sm:w-[400px] h-[95px] border border-dashed border-sky-400/20 rounded-[100%] pointer-events-none transform rotate-6 animate-spin-slow opacity-40"
+              style={{ animationDirection: 'reverse', animationDuration: '36s' }}
             />
 
-            {/* Silhouette Ambient Aura */}
+            {/* Silhouette Cinematic Rim Light & Back-Ember (Hugs Figure) */}
             <div 
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[380px] h-[300px] sm:h-[380px] rounded-full blur-[70px] pointer-events-none opacity-45"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[400px] h-[320px] sm:h-[400px] rounded-full blur-[85px] pointer-events-none opacity-40"
               style={{
-                background: 'radial-gradient(circle, var(--accent-gold) 0%, var(--accent-copper) 45%, transparent 75%)',
+                background: 'radial-gradient(circle, var(--accent-gold) 0%, var(--accent-copper) 50%, transparent 75%)',
               }}
             />
 
-            {/* The Cutout Portrait Image with Dynamic Silhouette Rim Light */}
-            <div 
-              className="relative z-20 transition-transform duration-300 ease-out"
-              style={{
-                transform: `translate3d(${mousePos.x * 12}px, ${mousePos.y * 6}px, 0)`,
-              }}
-            >
+            {/* The Cutout Portrait Image: ANCHORED, SOLID CINEMATIC ELEMENT (NO FLOAT) */}
+            <div className="relative z-20 w-full flex justify-center items-end">
               <img
                 src="/assets/portrait-cutout.png"
                 alt="Kabileshwar G - Full-Stack Engineer & AI/ML Systems"
-                className="w-auto h-[400px] sm:h-[480px] lg:h-[550px] object-contain object-bottom drop-shadow-[0_25px_50px_rgba(0,0,0,0.9)] cinematic-rim-glow filter contrast-[1.04] brightness-[1.02]"
+                className="w-auto h-[420px] sm:h-[500px] lg:h-[570px] object-contain object-bottom drop-shadow-[0_25px_60px_rgba(0,0,0,0.95)] cinematic-rim-glow filter contrast-[1.04] brightness-[1.02] select-none pointer-events-none"
               />
 
-              {/* Organic floor fade so waist/base blends seamlessly into the stage floor */}
-              <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[var(--bg-primary)] via-[var(--bg-primary)]/70 to-transparent pointer-events-none z-30" />
+              {/* Floor horizon fade for seamless stage blend */}
+              <div className="absolute bottom-0 left-0 right-0 h-14 bg-gradient-to-t from-[var(--bg-primary)] via-[var(--bg-primary)]/80 to-transparent pointer-events-none z-30" />
             </div>
 
-            {/* Floating Telemetry Identification Chip */}
-            <div className="absolute bottom-4 z-40 px-3.5 py-1.5 rounded-full glass-panel border theme-border-medium shadow-2xl backdrop-blur-xl flex items-center gap-2 text-xs font-mono">
+            {/* Grounded Monoline Identification Bar */}
+            <div className="absolute bottom-3 z-40 px-4 py-1.5 rounded-full glass-panel border theme-border-medium shadow-2xl backdrop-blur-xl flex items-center gap-2 text-xs font-mono">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="font-bold theme-text-fg">KABILESWAR G</span>
+              <span className="font-bold theme-text-fg tracking-wider">KABILESHWAR G</span>
               <span className="opacity-30">|</span>
-              <span className="theme-accent">SRM IST '27</span>
+              <span className="theme-accent font-semibold">SRM IST '27</span>
               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 ml-1" />
             </div>
           </div>

@@ -4,6 +4,7 @@ import { skillCategories } from '../data/skills';
 import type { SkillCategory } from '../data/skills';
 import { useTheme } from '../context/ThemeContext';
 import { TechUniverse3D } from './TechUniverse3D';
+import { RoleCinematicStage } from './RoleCinematicStage';
 
 export const SkillsSection: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -105,6 +106,17 @@ export const SkillsSection: React.FC = () => {
         {/* Scene 02: 3D Perspective Tech Universe */}
         <div className="scroll-reveal delay-100">
           <TechUniverse3D onSelectTech={(name) => setSearchQuery(name.split('/')[0].trim())} />
+        </div>
+
+        {/* Scene 02.B: Role-Based Cinematic Staging & Visual Simulations */}
+        <div className="scroll-reveal delay-150">
+          <RoleCinematicStage />
+        </div>
+
+        {/* Master Catalog Header */}
+        <div className="flex items-center gap-2 text-xs font-mono theme-accent uppercase tracking-widest mb-4">
+          <span className="w-4 h-[1px] bg-current" />
+          Master Technical Inventory &amp; Categorical Index
         </div>
 
         {/* Filter Pills */}
